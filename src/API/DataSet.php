@@ -240,4 +240,14 @@ class DataSet
         return $this->Client->getJSON("/v1/datasets/$id/policies");
     }
 
+    /**
+     * @param $id string //The GUID of the DataSet
+     * @param $query string //The JSON string of the query
+     * @return json
+     * @throws \Exception
+     */
+    public function queryDataset($id, $query)
+    {
+        return $this->Client->postJSON("/v1/datasets/query/execute/$id", $query);
+    }
 }
